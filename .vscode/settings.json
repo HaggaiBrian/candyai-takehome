@@ -1,0 +1,16 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.renderFinalNewline": "on",
+  "editor.insertSpaces": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "prettier.requireConfig": true,
+  "files.insertFinalNewline": true,
+  "cSpell.words": [
+    "candy.ai",
+    "candyai",
+    "candy",
+  ],
+}
