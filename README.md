@@ -14,13 +14,21 @@ cd candyai-takehome
 ```
 
 ### 2. Install all dependencies
-```npm install```
+```bash 
+npm install
+```
 
-```npx playwright install```
+```bash
+npx playwright install
+```
 
-```npm install --save-dev @types/node```
+```bash
+npm install --save-dev @types/node
+```
 
-```npm install --save-dev @faker-js/fake```
+```bash
+npm install --save-dev @faker-js/fake
+```
 
 ### 3. Project structure
 ```.
@@ -49,14 +57,20 @@ Steps
 6. These details can be found in the email you sent.
 
 ### 5. Running tests
-```npm test```
+```bash
+npm test
+```
 This will run tests in headless mode (NO UI displayed)
 
-```npm run test:headed```
+```bash
+npm run test:headed
+```
 This wil run tests in ui mode (UI to be shown)
 
 if we had multiple test files, this would apply. if with multiple test file, this how to run one test file
-```npx playwright test src/tests/ai-chat.spec.ts```
+```bash
+npx playwright test src/tests/ai-chat.spec.ts
+```
 
 ### 6. Reporting
 By default, the configured test reporting using default playwright test results folder and addition of screenshot capture on failure. No reporting tools added for purposes of timing. This file is auto generated and not included in git, hence gitignore
