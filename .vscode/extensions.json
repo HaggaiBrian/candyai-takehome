@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "ms-playwright.playwright",
+    "eamodio.gitlens",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "pkief.material-icon-theme",
+    "NuclleaR.vscode-extension-auto-import",
+    "streetsidesoftware.code-spell-checker",
+    "GitHub.copilot",
+    "GitHub.copilot-chat"
+  ]
+}
