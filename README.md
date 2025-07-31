@@ -57,6 +57,7 @@ Steps
 6. These details can be found in the email you sent.
 
 ### 5. Running tests
+Launch terminal and enter any of the commands below.
 ```bash
 npm test
 ```
