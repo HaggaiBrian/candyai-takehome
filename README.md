@@ -68,11 +68,6 @@ npm run test:headed
 ```
 This wil run tests in ui mode (UI to be shown)
 
-if we had multiple test files, this would apply. if with multiple test file, this how to run one test file
-```bash
-npx playwright test src/tests/ai-chat.spec.ts
-```
-
 ### 6. Reporting
 By default, the configured test reporting using default playwright test results folder and addition of screenshot capture on failure. No reporting tools added for purposes of timing. This file is auto generated and not included in git, hence gitignore
 
