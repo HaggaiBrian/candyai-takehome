@@ -1,19 +1,26 @@
 import { expect, test } from '@playwright/test';
+
 import LOGIN from '../../src/helpers/paths';
 import { clickCloseIfVisible, enterAccessKeyIfVisibleAndSubmit } from '../helpers/key-access';
-import { ask, typeMessage } from '../helpers/send-chat';
+import { placeCall, typeMessage } from '../helpers/send-chat';
+import chatPageSelectors from '../page-objects/chat-page';
 import homePageSelectors from '../page-objects/home-page';
 import landingPageSelectors from '../page-objects/landing-page';
 import loginPageModalSelectors from '../page-objects/login-page';
 
 test.describe('Login as premium user and navigate to chat', () => {
+  // Extracting selectors for easier reuse
   const { loginBtn } = landingPageSelectors.fixedTopBar;
   const { emailTextBox, passwordTextBox, signinBtn } = loginPageModalSelectors.loginPage;
+  const { ringingText, hangUpBtn } = chatPageSelectors.callSection;
   const { chatBtn } = homePageSelectors.leftFixedDateBar;
+
+  // Environment variables for secure credentials
   const accessKey = process.env.ACCESS_KEY!;
   const email = process.env.EMAIL!;
   const password = process.env.PASSWORD!;
 
+  // Run before each test in this suite. This like a setup hook to prepare the testing to be successful
   test.beforeEach(async ({ page }) => {
     await page.goto(LOGIN.LOGIN);
     await enterAccessKeyIfVisibleAndSubmit(page, accessKey);
@@ -29,19 +36,20 @@ test.describe('Login as premium user and navigate to chat', () => {
     await clickCloseIfVisible(page);
   });
 
-  test.only('TC_AIChat_001_SendAndReceiveMessage', async ({ page }) => {
-  test.setTimeout(90000);
-  const responseText = await typeMessage(page);
-  expect(responseText, 'AI response should exist').toBeTruthy();
-  expect(responseText.trim().length).toBeGreaterThan(0);
-  expect(responseText).toMatch(/[a-zA-Z]+/);
-});
+  // Test case: Send a message and verify response
+  test('TC_AIChat_001_SendAndReceiveMessage', async ({ page }) => {
+    test.setTimeout(90000);
+    const responseText = await typeMessage(page);
+    expect(responseText, 'AI response should exist').toBeTruthy();
+    expect(responseText.trim().length).toBeGreaterThan(0);
+    expect(responseText).toMatch(/[a-zA-Z]+/);
+  });
 
-  test('TC_AIChat_002_SendAndReceiveMessageUsingAsk', async ({ page }) => {
-  await ask(page);
-  const generatedImage = page.locator('img[src*="data:image"]');
-  await expect(generatedImage).toBeVisible({ timeout: 30000 });
-  const createAIVideoOption = page.getByText('Create AI video', { exact: false });
-  await expect(createAIVideoOption).toBeVisible({ timeout: 50000 });
-});
+  // Test case: Place a call and verify UI updates for call placing
+  test('TC_AIChat_002_PlaceACall', async ({ page }) => {
+    test.setTimeout(90000);
+    await placeCall(page);
+    await expect(page.getByText(ringingText)).toBeVisible();
+    await expect(page.locator(hangUpBtn)).toBeVisible();
+  });
 });

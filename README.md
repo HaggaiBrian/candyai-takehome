@@ -73,4 +73,4 @@ By default, the configured test reporting using default playwright test results 
 
 ### 7. Proof of running tests
 This is a proof of concept for the running tests. its basically a screenshot indicating that all tests are passing correctly as expected.
-![alt text](<Screenshot 2025-07-31 at 10.26.00.png>)
+![alt text](<Screenshot 2025-07-31 at 12.27.15.png>)

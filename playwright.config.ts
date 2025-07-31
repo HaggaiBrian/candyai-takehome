@@ -9,6 +9,7 @@ export default defineConfig({
      baseURL: 'https://fcedgmdaekj-olcffeha-pr-3237-ed9b8bb7f151.herokuapp.com/',
     ignoreHTTPSErrors: true,
     screenshot: 'only-on-failure',
+    permissions: ['microphone'],
   },
   projects: [
     {

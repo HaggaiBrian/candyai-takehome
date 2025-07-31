@@ -11,6 +11,12 @@ const chatPageSelectors = {
   askSection: {
     suggestionBox: 'div.bg-[#1d1e36]',
   },
+  callSection: {
+    telephoneIcon: '#pfp-banner-container a',
+    confirmCallModal: 'Confirm Your Call Don\'t show',
+    ringingText: "Ringing...",
+    hangUpBtn: '#phoneCallModal a'
+  },
 };
 
 export default chatPageSelectors;
