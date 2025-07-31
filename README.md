@@ -74,3 +74,18 @@ By default, the configured test reporting using default playwright test results 
 ### 7. Proof of running tests
 This is a proof of concept for the running tests. its basically a screenshot indicating that all tests are passing correctly as expected.
 ![alt text](<Screenshot 2025-07-31 at 12.27.15.png>)
+
+### 8. WHY
+ **Send and receive a chat message:**  
+   This covers the core user flow where a user sends a message and receives an AI-generated response.  
+   - *Why?* This is a business-critical flow as it represents the main interaction users have with the AI chat.  
+   - *Risk:* If broken, users cannot communicate with the AI, leading to severe UX degradation and lost trust hence rendering the platform not reliable and doing its intended goal.
+
+**Use the "place call":**  
+   This Automates placing a call through the AI Chat feature (e.g., triggering a call action or similar business-critical call flow).  
+   - *Why?* Calls are a critical business function — enabling direct communication is essential for user engagement and revenue..  
+   - *Risk:* If this flow is broken, it could block vital user interactions and cause major business disruption.
+
+### 9. Assumptions and setup conditions
+- It was important to hide the login credentials. The reason is that these are secret and its important to prevent risk of hackers. So we hid it under secrets
+- Since we were dealing with a paid and logged in user, each test required to be setup with a login of to the interface before executing the tests
